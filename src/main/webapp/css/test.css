@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+*{
+	color:red;
+}
+
+h3{
+	color:blue;
+}
+
+#t1{
+	color:lime;
+	border: orange 1px solid;
+	
+}
+
+.c1{
+	color : black;
+}
+
+h1{
+	font-size:100px;
+	border-top-color: red;
+	border-top-width:3px;
+	border-top-style: solid;
+	
+	border-bottom-color: red;
+	border-bottom-width:3px;
+	border-bottom-style: solid;
+	
+	border-right-color: blue;
+	border-right-width:3px;
+	border-right-style: dashed;
+	
+	border-left: blue dotted 3px;
+	
+	
+}
+
+.c2{
+	font-size:30px;
+	
+}
+
+
+#circle{
+	
+	border: 5px solid red;
+	width : 200px; 
+	height : 200px; 
+	border-radius: 200px;
+
+}
+
+
+
+
+
+
+

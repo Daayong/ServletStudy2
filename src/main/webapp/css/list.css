@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+
+.tbl{
+	
+	border: grey 2px solid;
+	border-spacing : 0px;
+}
+
+.tbl_tr{
+	border: blue 2px dotted;
+	border-spacing : 0px;
+	border-collapse:collapse;
+}
+
+th{
+	background-color: grey;
+	border-width:2px;
+	color:white; 
+	margin:0px;
+}
+
