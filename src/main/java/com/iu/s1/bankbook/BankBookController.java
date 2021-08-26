@@ -1,5 +1,6 @@
 package com.iu.s1.bankbook;
 
+
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -26,6 +27,9 @@ public class BankBookController {
 
 		System.out.println("path : "+path[3]);
 		
+		
+		
+		//상품 목록 조회 
 		if(path[3].equals("bankbookList.do")) {
 			System.out.println("상품목록 조회");
 			
@@ -36,17 +40,65 @@ public class BankBookController {
 			for(BankBookDTO bankBookDTO : ar) {
 				System.out.println(bankBookDTO.getBookName());
 			}
-			
+			request.setAttribute("list", ar);
 			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/views/bankbook/bankbookList.jsp");
+			
+			
 			try {
 				view.forward(request,response);
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} 
+	
 			
+		//상품 등록 조회 	
 		}else if(path[3].equals("bankbookInsert.do")) {
 			System.out.println("상품등록 조회");
+			
+			String method = request.getMethod();
+			System.out.println("Method :" + method);
+			
+			if(method.equals("POST")) {
+			
+				
+				String bookName=request.getParameter("bookName");
+				String bookRate=request.getParameter("bookRate");
+				String bookSale=request.getParameter("bookSale");
+				BankBookDTO bankBookDTO = new BankBookDTO(); 
+				bankBookDTO.setBookName(bookName);
+				bankBookDTO.setBookRate(Double.parseDouble(bookRate));
+				bankBookDTO.setBookSale(Integer.parseInt(bookSale));
+				
+				
+				int result=bankBookDAO.setInsert(bankBookDTO);
+				System.out.println(result);
+				
+				
+				try {
+					response.sendRedirect("./bankBookList.do");
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				
+			}else {
+			
+				RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/views/bankbook/bankbookInsert.jsp");
+			
+				try {
+					view.forward(request, response);	
+				
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} 
+			
+			}
+			
+			
+		//상품 상세 조회 	
 		}else if(path[3].equals("bankbookSelect.do")){
 			System.out.println("상품 상세 조회");
 			String num=request.getParameter("bookNumber");
@@ -58,6 +110,8 @@ public class BankBookController {
 			bankBookDTO =bankBookDAO.getSelect(bankBookDTO);
 			
 			System.out.println(bankBookDTO.getBookName());
+			
+			request.setAttribute("dto", bankBookDTO);
 			
 			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/views/bankbook/bankbookSelect.jsp");
 			try {

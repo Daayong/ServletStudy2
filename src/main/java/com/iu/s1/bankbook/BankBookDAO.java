@@ -18,6 +18,44 @@ public class BankBookDAO {
 	
 	}
 	
+	//setInsert
+	
+	public int setInsert(BankBookDTO bankBookDTO) {
+		Connection con = dbConnector.getConnect();
+		PreparedStatement st = null;
+		int result = 0; 
+		String sql = "INSERT INTO BANKBOOK (bookNumber,bookName,bookRate,bookSale) "
+				+ "values(BANKBOOK_SEQ.NEXTVAL,?,?,?)";
+		
+		try {
+			
+			st = con.prepareStatement(sql);
+	
+			st.setString(1,bankBookDTO.getBookName());
+			st.setDouble(2, bankBookDTO.getBookRate());
+			st.setInt(3, bankBookDTO.getBookSale());
+		
+			result =st.executeUpdate();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			dbConnector.disConnect(st, con);
+			
+		}
+		
+		
+		return result;
+		
+	}
+	
+		
+	
+	
+	
+	
+	
+	
 	
 	public ArrayList<BankBookDTO> getList() {
 		Connection con = dbConnector.getConnect();
@@ -43,7 +81,7 @@ public class BankBookDAO {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}finally {
-			disConnect(rs, st, con);
+			dbConnector.disConnect(rs, st, con);
 		}
 		
 		return ar;
@@ -81,25 +119,17 @@ public class BankBookDAO {
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			
+			dbConnector.disConnect(rs, st, con);
+			
 		}
 		
 		return result;
 				
 	}
 	
-	
-	public void disConnect(ResultSet rs, PreparedStatement st, Connection con) {
-		try {
-			rs.close();
-			st.close();
-			con.close();
-			
-		} catch (Exception e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
+
 	
 	
 }

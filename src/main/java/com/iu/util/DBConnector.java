@@ -2,6 +2,8 @@ package com.iu.util;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 
 public class DBConnector {
@@ -27,6 +29,34 @@ public class DBConnector {
 		return con;
 		
 	}
+	
+	
+	public void disConnect(PreparedStatement st,Connection con) {
+		try {
+			st.close();
+			con.close();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	public void disConnect(ResultSet rs, PreparedStatement st, Connection con) {
+		try {
+			rs.close();
+			st.close();
+			con.close();
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
+	
+	
 	
 	
 	
