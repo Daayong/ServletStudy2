@@ -1,0 +1,65 @@
+@charset "UTF-8";
+
+
+
+
+.header{
+	width:100%;
+	height:67px; 
+	background-color:black;
+	
+}
+
+.header > div{
+	width:70%;
+	height:67px;
+	margin:0 auto;  
+}
+
+.m1{
+	width:20%;
+	height:100%; 
+
+	float:left;
+	padding : 13px 0px; 
+	box-sizing:border-box;	
+	
+}
+
+.m2{
+	width:60%;
+	height:100%; 
+	float:left;
+}
+
+.nav>li{
+	float:left; 
+	color:white; 
+	list-style: none;
+	margin-left:30px; 
+	line-height:67px; /* Tip!  header의 높이와 같게 설정  */
+	font-size:20px; 
+	font-weight: bold;
+}	
+
+.m3{
+	width:20%;
+	height:100%; 
+	float:right;
+}
+
+
+.main{
+	width:70%; 
+	height:800px;
+	background-color:yellow;
+	margin: 75px auto 100px auto;  
+}
+
+
+.footer{
+	width:100%;
+	height:132px; 
+	background-color:red;
+ 
+}

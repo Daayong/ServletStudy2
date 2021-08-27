@@ -120,6 +120,8 @@ public class BankBookController {
 			HttpSession session = request.getSession();
 			session.setAttribute("se", "session");
 			
+			request.setAttribute("se", "request");
+			
 			
 			RequestDispatcher view = request.getRequestDispatcher("../WEB-INF/views/bankbook/bankbookSelect.jsp");
 			try {

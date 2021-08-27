@@ -1,22 +1,26 @@
 @charset "UTF-8";
 
 
+#title{
+	margin: 0 auto;
+	width:70%;
+	display:inline-block; 
+	text-align:center; 
+	background-color: yellow; 
+}
+
 .tbl{
 	
 	border: grey 2px solid;
 	border-spacing : 0px;
+	border-collapse: collapse;
+	width:70%;
+	margin:0 auto; 
+	
 }
 
 .tbl_tr{
 	border: blue 2px dotted;
-	border-spacing : 0px;
-	border-collapse:collapse;
-}
+	}
 
-th{
-	background-color: grey;
-	border-width:2px;
-	color:white; 
-	margin:0px;
-}
 

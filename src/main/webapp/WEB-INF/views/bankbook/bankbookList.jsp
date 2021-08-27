@@ -18,7 +18,8 @@
 </head>
 <body>
 
-	<h1>BankBook List Page BY JSTL</h1>
+	<h1 id="title">BankBook List Page BY JSTL2</h1>
+	
 	
 
 	<table class="tbl">
@@ -43,6 +44,8 @@
 	
 	</c:forEach>
 	
+	</table>
+	
 	
 	<div>
 		<c:forEach begin="11" end="10" step="1" var="num" varStatus="i">
@@ -50,14 +53,6 @@
 		</c:forEach>
 	
 	</div>
-	
-	
-	
-	
-	
-	
-	
-	</table>
 	
 	
 	<a href="bankbookInsert.do">WRITE</a>
