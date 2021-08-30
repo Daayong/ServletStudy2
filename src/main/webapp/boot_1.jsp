@@ -15,9 +15,14 @@
   <body>
     <h1>Hello, world!</h1>
 
-	<div class="container"></div>
-	<div class="container-fluid"></div>
+	<div class="container bg-primary"></div>
+	<div class="container-fluid bg-danger"></div>
 
+	<div class="row">
+		<div class="col-sm-12 col-lg-4 bg-primary">1</div>
+		<div class="col-sm-12 col-lg-4 bg-danger">2</div>
+		<div class="col-sm-12 col-lg-4 bg-info">3</div>
+	</div>
 
 
 
